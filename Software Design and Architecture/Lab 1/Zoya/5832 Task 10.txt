@@ -1,0 +1,31 @@
+Task 10 
+
+Part a)
+Output would be
+
+m1 method in class A
+m1 method in class A
+m1 method in class B
+m1 method in class B
+m1 method in class B
+
+
+
+
+
+Part b) 
+A cannot be converted to String
+a.m1(new A ()); is incorrect
+
+
+
+
+
+Part c)
+Output would be
+
+One
+Two
+Three
+One
+Two

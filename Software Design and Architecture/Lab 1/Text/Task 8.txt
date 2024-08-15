@@ -1,0 +1,33 @@
+public class Employee {
+    private int salary;
+    private int hoursWorkedPerDay;
+
+    public Employee(int salary, int hoursWorkedPerDay) {
+        this.salary = salary;
+        this.hoursWorkedPerDay = hoursWorkedPerDay;
+    }
+
+    public void updateInfo(int salary, int hoursWorkedPerDay) {
+        this.salary = salary;
+        this.hoursWorkedPerDay = hoursWorkedPerDay;
+    }
+
+    public int calculateSalary() {
+        if (salary < 500) {
+            salary += 10;
+        }
+
+        if (hoursWorkedPerDay > 6) {
+            salary += 5;
+        }
+
+        return salary;
+    }
+
+    public static void main(String[] args) {
+        Employee employee = new Employee(450, 8);
+        employee.updateInfo(450, 8);
+        int finalSalary = employee.calculateSalary();
+        System.out.println("Final salary: $" + finalSalary);
+    }
+}

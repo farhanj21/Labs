@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Lab2">
+  <ClassDiagramComponents>
+    <Class name="User" package="" visibility="public" xPosition="68.0" yPosition="74.0">
+      <Fields>
+        <Field name="fullName" type="String" visibility="private"/>
+        <Field name="lastName" type="String" visibility="private"/>
+        <Field name="emailAddress" type="String" visibility="private"/>
+        <Field name="phoneNum" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="fullName"/>
+          <Argument type="String" name="lastName"/>
+          <Argument type="String" name="emailAddress"/>
+          <Argument type="String" name="phoneNum"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getFirstName" returnType="String" visibility="public"/>
+        <Method name="getLastName" returnType="String" visibility="public"/>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="getPhoneNo" returnType="String" visibility="public"/>
+        <Method name="setFirstName" returnType="void" visibility="public">
+          <Argument type="String" name="fullName"/>
+        </Method>
+        <Method name="setLastName" returnType="void" visibility="public">
+          <Argument type="String" name="lastName"/>
+        </Method>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="emailAddress"/>
+        </Method>
+        <Method name="setPhoneNo" returnType="void" visibility="public">
+          <Argument type="String" name="phoneNum"/>
+        </Method>
+        <Method name="signUp" returnType="void" visibility="public"/>
+        <Method name="forgotPassword" returnType="void" visibility="public"/>
+        <Method name="resetPassword" returnType="void" visibility="public"/>
+        <Method name="updateProfile" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Admin" package="" visibility="public" xPosition="22.0" yPosition="513.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="fullName"/>
+          <Argument type="String" name="lastName"/>
+          <Argument type="String" name="emailAddress"/>
+          <Argument type="String" name="phoneNum"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="createUser" returnType="void" visibility="public">
+          <Argument type="String" name="fullName"/>
+          <Argument type="String" name="lastName"/>
+          <Argument type="String" name="emailAddress"/>
+          <Argument type="String" name="phoneNum"/>
+        </Method>
+        <Method name="addUser" returnType="void" visibility="public">
+          <Argument type="String" name="fullName"/>
+          <Argument type="String" name="phoneNum"/>
+        </Method>
+        <Method name="deleteUser" returnType="void" visibility="public">
+          <Argument type="String" name="fullName"/>
+          <Argument type="String" name="phoneNum"/>
+        </Method>
+        <Method name="approveBooking" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Customer" package="" visibility="public" xPosition="568.0" yPosition="513.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="fullName"/>
+          <Argument type="String" name="lastName"/>
+          <Argument type="String" name="emailAddress"/>
+          <Argument type="String" name="phoneNum"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="viewCars" returnType="void" visibility="public"/>
+        <Method name="bookCar" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="phoneNumber"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CarVendor" package="" visibility="public" xPosition="568.0" yPosition="246.0">
+      <Fields>
+        <Field name="type" type="String" visibility="public"/>
+        <Field name="carNum" type="String" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="fullName"/>
+          <Argument type="String" name="lastName"/>
+          <Argument type="String" name="emailAddress"/>
+          <Argument type="String" name="phoneNum"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="uploadDoc" returnType="void" visibility="public"/>
+        <Method name="trackCar" returnType="void" visibility="public">
+          <Argument type="String" name="carNumber"/>
+        </Method>
+        <Method name="approveBooking" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Admin" target="User"/>
+    <IsRelation name="is" source="Customer" target="User"/>
+    <IsRelation name="is" source="CarVendor" target="User"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

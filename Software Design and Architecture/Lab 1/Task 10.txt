@@ -1,0 +1,25 @@
+Task 10 
+
+a)
+The output of the code will be:
+
+m1 method in class A
+m1 method in class A
+m1 method in class B
+m1 method in class B
+m1 method in class B
+
+b) 
+A cannot be converted to String in line a.m1(new A ());
+Compile time error because method m1 in class A has a parameter of type String, 
+
+
+
+c)
+The output of the code will be:
+
+One
+Two
+Three
+One
+Two
