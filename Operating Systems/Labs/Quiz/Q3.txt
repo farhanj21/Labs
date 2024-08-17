@@ -1,0 +1,2 @@
+The child's parents ID is 1 because of the Fork call in line 8 which forks the process into
+a child process and a parents. When the first child is forked the Parent ID is one as it is a parent/child of it self.

@@ -1,0 +1,14 @@
+BEST METHOD: 2nd attempt
+The use of n*n threads to perform the task as it will be faster and more efficent due to the use of parallel processing to execute multiplication.
+
+SECOND: 3rd attempt
+The use of 2 threads to perform the task is faster than 1 thread as two would work side by side doing each task simultaneously and then joined together.
+
+WORST METHOD: 1st attempt
+The use of a single thread to perform multiplcation would slowest as the CPU would process the whole matrix one by one in a sequence, hence being slower.
+
+
+RANKING:
+2nd Attempt (N*N Threads)
+3rd Attempt (2 Threads)
+1st Attempt (Single Thread)
