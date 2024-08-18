@@ -1,0 +1,16 @@
+Name: Moin Khan
+CNIC: 43304-2042345-4
+Vote: Bat
+
+Name: Moin Khan
+CNIC: 43304-2042345-4
+Vote: bat
+
+Name: Waseem Akram
+CNIC: 43204-2032547-3
+Vote: Arrow
+
+Name: Waseem Akram
+CNIC: 43204-2032547-3
+Vote: Tiger
+
