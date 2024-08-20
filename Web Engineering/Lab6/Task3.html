@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+<title>Task 3</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: white;
+    }
+
+    h3 {
+        text-align: center;
+        color: orange;
+    }
+
+    #tableOutput {
+        text-align: center;
+        color: orange;
+    }
+</style>
+</head>
+<body>
+<script>
+function printMultiplicationTable() {
+    var number = prompt("Please enter a number:");
+    number = parseInt(number);
+
+    if (!isNaN(number)) {
+        var table = " ";
+        table += "<table border='1'>";
+        for (var i = 1; i <= 10; i++) {
+            table += "<tr><td>" + number + " x " + i + "</td><td>=</td><td>" + (number * i) + "</td></tr>";
+        }
+        table += "</table>";
+        document.getElementById("tableOutput").innerHTML = table;
+    } else {
+        document.getElementById("tableOutput").innerHTML = "<p>Please enter a valid number.</p>";
+    }
+}
+
+window.onload = printMultiplicationTable;
+</script>
+
+<div id="tableOutput"></div>
+
+</body>
+</html>

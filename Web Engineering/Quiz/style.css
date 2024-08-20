@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: antiquewhite;
+}
+.container{
+    margin-top: 20px;
+    position: relative;
+}
+.box{
+    /* height: 450px; */
+    text-align: center;
+    padding-top: 30px;
+    background-color: white;
+}
+.button{
+    background-color: plum; 
+    color: white;
+}
+.heading{
+    color: lightskyblue;
+    font-size: 2em;
+}
+.amount{
+    color: green;
+    font-size: 2em;
+    font-weight: bolder;
+}
+.value{
+    font-size: 1.4em;
+    font-weight: bold;
+
+}
+.recom{
+    background-color: green;
+    width: 50%;
+    position: absolute;
+    top: 0;
+    color: white;
+    text-align: center;
+    left: 20%;
+    display: none;
+}
+.gbs{
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.box1, .box2, .box3{
+    border-right: 1px solid black;
+}
+.box:hover{
+    border: 2px solid lightskyblue;
+    .recom{
+        display: block;
+    }
+}

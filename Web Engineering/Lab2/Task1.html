@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<style>
+
+h2 {
+    text-align: center;
+    color: red;
+}
+
+.reservation-table {
+    margin: 20px auto;
+    background-color: lightblue;
+}
+
+.reservation-table td {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: auto;
+    padding: 10px 20px;
+    background-color: grey;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+div {
+    max-width: 500px;
+    padding:10px;
+    background-color: lightgrey;
+    margin: auto;
+}
+
+
+</style>
+<head>
+    <title>Hotel Reservation Form</title>
+</head>
+<body>
+<div>
+    <h2>Continental Hotel Reservation Form</h2>
+    <form action="#" method="post">
+        <table class="reservation-table">
+            <tr>
+                <td><label for="name">Name:</label></td>
+                <td><input type="text" id="name" name="name" required placeholder="Enter your name"></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="text" id="email" name="email" required placeholder="Enter email address"></td>
+            </tr>
+            <tr>
+                <td><label for="phone">Mobile No:</label></td>
+                <td><input type="text" id="phone" name="phone" required placeholder="Enter your cell number"></td>
+            </tr>
+            <tr>
+                <td><label for="arrival">Arrival Time:</label></td>
+                <td><input type="time" id="arrival" name="arrival"></td>
+            </tr>
+    
+            <tr>
+                <td><label for="check-out">Departure:</label></td>
+                <td><input type="time" id="departure" name="departure" required></td>
+            </tr>
+            <tr>
+                <td><label>Room Type:</label></td>
+                <td>
+                    <input type="radio" id="single" name="room-type" value="single" required>
+                    <label for="single">Single</label>
+                    <input type="radio" id="double" name="room-type" value="double" required>
+                    <label for="double">Double</label><br>
+                    <input type="radio" id="suite" name="room-type" value="suite" required>
+                    <label for="suite">Presidential Suite</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Preferences:</label></td>
+                <td>
+                    <input type="checkbox" id="non" name="preferences" value="non" required>
+                    <label for="non">Non-Smoking</label><br>
+                    <input type="checkbox" id="internet" name="preferences" value="internet" required>
+                    <label for="internet">Internet</label><br>
+                    <input type="checkbox" id="firm" name="preferences" value="firm" required>
+                    <label for="firm">Firm Mattress</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Mode of Payment:</label></td>
+                <td>
+                    <input type="checkbox" id="cash" name="mode" value="cash" required>
+                    <label for="cash">Cash</label>
+                    <input type="checkbox" id="check" name="mode" value="check" required>
+                    <label for="check">Check</label><br>
+                    <input type="checkbox" id="card" name="mode" value="card" required>
+                    <label for="card">Credit Card</label>
+                    <select id="cardtype" name="cardtype" required>
+                        <option value="">Select Card</option>
+                        <option value="sadapay">Sadapay</option>
+                        <option value="nayapay">Nayapay</option>
+                        <option value="master">Mastercard</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td style= "text-align: center" colspan="2"><input type="submit" value="Send Data"></td>
+            </tr>
+        </table>
+    </form>
+    </div>
+</body>
+</html>

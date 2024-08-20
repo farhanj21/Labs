@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Task 2</title>
+    <style>
+        body {
+            background-color: lightgrey;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center; 
+        }
+
+        .image {
+            border-radius: 50%;
+            max-width: 150px;
+            margin-bottom: 20px; 
+        }
+
+        .detail {
+            margin-bottom: 10px;
+            text-align: left; 
+        }
+
+        .detail strong {
+            display: inline-block;
+            width: 150px;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px; 
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                max-width: 100%;
+                padding: 10px;
+            }
+            .detail strong {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="name">User Profile</h1> 
+        <div id="userProfile">
+        </div>
+        <button id="generate">Generate Random User</button>
+    </div>
+
+ 
+    <script>
+        $(document).ready(function() {
+            $("#generate").click(function() {
+                $.ajax({
+                    url: 'https://randomuser.me/api/',
+                    dataType: 'json',
+                    success: function(data) {
+                        displayUserProfile(data.results[0]);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(status, error);
+                    }
+                });
+            });
+        });
+
+        function displayUserProfile(user) {
+            let userProfile = `
+                <div class="profile">
+                    <img src="${user.picture.large}" alt="UserImage" class="image">
+                    <div class="detail"><strong>Name:</strong> ${user.name.first} ${user.name.last}</div>
+                    <div class="detail"><strong>Gender:</strong> ${user.gender}</div>
+                    <div class="detail"><strong>Location:</strong> ${user.location.street.number} ${user.location.street.name}, ${user.location.city}, ${user.location.state}, ${user.location.country}, ${user.location.postcode}</div>
+                    <div class="detail"><strong>Email:</strong> ${user.email}</div>
+                    <div class="detail"><strong>Username:</strong> ${user.login.username}</div>
+                    <div class="detail"><strong>Password:</strong> ${user.login.password}</div>
+                    <div class="detail"><strong>DOB:</strong> ${user.dob.date}</div>
+                    <div class="detail"><strong>Registered:</strong> ${user.registered.date}</div>
+                    <div class="detail"><strong>Phone:</strong> ${user.phone}</div>
+                    <div class="detail"><strong>Cell:</strong> ${user.cell}</div>
+                    <div class="detail"><strong>ID:</strong> ${user.id.name}: ${user.id.value}</div>
+                    <div class="detail"><strong>Nationality:</strong> ${user.nat}</div>
+                    <div class="detail"><strong>Timezone:</strong> ${user.location.timezone.offset}, ${user.location.timezone.description}</div>
+                </div>
+            `;
+            $("#userProfile").html(userProfile);
+            $("#name").html(`${user.name.first} ${user.name.last}`); 
+        }
+    </script>
+</body>
+</html>

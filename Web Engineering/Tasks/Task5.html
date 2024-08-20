@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<head>
+<title>Task 5</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        border: 2px solid grey;
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #output {
+        font-size: 24px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<script>
+    window.onload = function() {
+        const reverseString = str => str.split('').reverse().join('');
+
+        const calculateAvg = (...num) => 
+        {
+            const sum = num.reduce((acc, curr) => acc + curr, 0);
+            return sum / num.length;
+        };
+
+        const findSecondLargest = arr => {
+            const sortedArr = arr.sort((a, b) => b - a);
+            return sortedArr[1];
+        };
+
+        const countWords = paragraph => paragraph.split(/\s+/).filter(word => word !== '').length;
+
+        const isPalindrome = word => {
+            const reversedWord = word.split('').reverse().join('');
+            return word.toLowerCase() === reversedWord.toLowerCase();
+        };
+
+        document.getElementById('reverseBtn').addEventListener('click', function() {
+            const inputString = document.getElementById('reverseInput').value;
+            document.getElementById('reverseOutput').innerHTML = "<b>Reversed String: " + reverseString(inputString) + "</b>";
+        });
+
+        document.getElementById('averageBtn').addEventListener('click', function() {
+            const num = document.getElementById('avgInput').value.split(',').map(Number);
+            document.getElementById('averageOutput').innerHTML = "<b>Average: " + calculateAvg(...num) + "</b>";
+        });
+
+        document.getElementById('secondLargestBtn').addEventListener('click', function() {
+            const num = document.getElementById('secondLargestInput').value.split(',').map(Number);
+            document.getElementById('secondLargestOutput').innerHTML = "<b> Second Largest Number: " + findSecondLargest(num) + "</b>";
+        });
+
+        document.getElementById('wordCountBtn').addEventListener('click', function() {
+            const paragraph = document.getElementById('wordCountInput').value;
+            document.getElementById('wordCountOutput').innerHTML = "<b>Total Words: " + countWords(paragraph) + "</b>";
+        });
+
+        document.getElementById('palindromeBtn').addEventListener('click', function() {
+            const word = document.getElementById('palindromeInput').value;
+            document.getElementById('palindromeOutput').innerHTML = "<b>The Word is a " + (isPalindrome(word) ? 'Palindrome' : 'Not a Palindrome') + "</b>";
+        });
+    };
+</script>
+<body>
+
+<div class="container">
+    <h2>Arrow Function Tasks / Task 5</h2>
+
+    <label for="reverseInput">Enter a string:</label>
+    <input type="text" id="reverseInput" placeholder="Enter a string">
+    <button id="reverseBtn">Reverse</button>
+    <p id="reverseOutput"></p>
+
+    <label for="avgInput">Enter num separated by comma:</label>
+    <input type="text" id="avgInput" placeholder="Enter num">
+    <button id="averageBtn">Calculate Average</button>
+    <p id="averageOutput"></p>
+
+    <label for="secondLargestInput">Enter num separated by comma:</label>
+    <input type="text" id="secondLargestInput" placeholder="Enter num">
+    <button id="secondLargestBtn">Find Second Largest</button>
+    <p id="secondLargestOutput"></p>
+
+    <label for="wordCountInput">Enter a paragraph:</label>
+    <textarea id="wordCountInput" placeholder="Enter a paragraph"></textarea>
+    <button id="wordCountBtn">Count Words</button>
+    <p id="wordCountOutput"></p>
+
+    <label for="palindromeInput">Enter a word:</label>
+    <input type="text" id="palindromeInput" placeholder="Enter a word">
+    <button id="palindromeBtn">Check Palindrome</button>
+    <p id="palindromeOutput"></p>
+</div>
+
+
+
+</body>
+</html>

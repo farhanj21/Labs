@@ -1,0 +1,24 @@
+.button {
+  font-size: 1.2em;
+  margin: 0 10px;
+  padding: 10px 20px;
+  display: flex;
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+  margin: 10px 0;
+  justify-content: center;
+
+
+}
+
+.hello
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+<title>Task 1</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    flex-direction: column;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <h2>University Search</h2>
+
+  <form id="searchForm">
+    <label for="uniName">Enter University Name:</label>
+    <input type="text" id="uniName" name="uniName">
+    <button type="submit">Search</button>
+  </form>
+
+  <div id="uniInfo"></div>
+
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#searchForm").submit(function(event){
+    event.preventDefault(); 
+
+    var searchQuery = $("#uniName").val(); 
+
+    $.ajax({
+      url: "http://universities.hipolabs.com/search?name=" + searchQuery,
+      type: "GET",
+      success: function(response){
+        if(response.length > 0) {
+          var uni = response[0]; 
+          
+          var html = "<br><br><h3>" + uni.name + "</h3>";
+          html += "<p><b>Country: </b>" + uni.country + "</p>";
+          html += "<p><b>Domain: </b>" + uni.domains.join(", ") + "</p>";
+          html += "<p><b>Web Page: </b>";
+          uni.web_pages.forEach(function(webPage){
+            html += "<a href='" + webPage + "' target='_blank'>" + webPage + "</a><br>";
+          });
+          html += "</p>";
+          $("#uniInfo").html(html); 
+        } else {
+          $("#uniInfo").html("<p>No University found with that name</p>");
+        }
+      },
+      error: function(){
+        $("#uniInfo").html("<p>Error retrieving uni information</p>");
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>

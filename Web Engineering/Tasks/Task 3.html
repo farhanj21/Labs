@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Task 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin : 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            display: grid;
+            height: 100vh;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-areas: "header header nav nav"
+                                 "sidebar main main main"
+                                 "sidebar box1 box2 box3"
+                                 "sidebar footer footer footer";
+            grid-template-rows: 0.8fr 1.3fr 1.1fr 0.8fr;
+            text-align: center;
+            grid-gap: 0.2rem;
+            color: white;
+        }
+        .header {
+            grid-area: header;
+            background-color: aqua;
+
+        }
+        .nav {
+            grid-area: nav;
+            background-color: aqua;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .sidebar {
+            grid-area: sidebar;
+            background-color: blueviolet;
+        }
+        .main {
+            grid-area: main;
+            background-color: cadetblue;
+        }
+        .box1 {
+            grid-area: box1;
+            background-color: coral;
+        }
+        .box2 {
+            grid-area: box2;
+            background-color: cornflowerblue;
+        }
+        .box3 {
+            grid-area: box3;
+            background-color: brown;
+        }
+        .footer {
+            grid-area: footer;
+            background-color: darkcyan;
+        }
+        .nav a {
+            float: left;
+            color: cadetblue;
+            text-align: center;
+            padding: 14px 16px;
+            font-size: 17px;
+            background-color: rgb(54, 54, 54);
+          }
+          
+        .nav a:hover {
+            background-color: #ddd;
+            color: darkcyan;
+        }
+
+        .imagelogo {
+            float: left;
+            width: 40%;
+            height: 100%;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            
+        }
+        
+        .hamburger-menu {
+            cursor: pointer;
+            color: black;
+            background: none;
+            border: none;
+            font-size: 22px;
+            top: 20px;
+            right: 20px;
+            position: absolute;
+          
+        }
+
+        @media only screen and (max-width: 640px) {
+            .container {
+                padding: 0;
+                grid-template-columns: 1fr;
+                grid-template-areas: "header"
+                                    "sidebar"
+                                    "main"
+                                    "box1"
+                                    "box2"
+                                    "box3"
+                                    "footer"
+            }
+            .container.active {
+                padding: 0;
+                grid-template-columns: 1fr;
+                grid-template-areas: "header"
+                                    "nav"
+                                    "sidebar"
+                                    "main"
+                                    "box1"
+                                    "box2"
+                                    "box3"
+                                    "footer"
+            }
+      
+            .nav.active {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                grid-area: nav;
+            }
+            .hamburger-menu {
+                display: block;
+            }
+        }
+
+    </style>
+  
+    <title>Task 3</title>
+</head>
+<body>
+    <div class = "container">
+        <div class ="header">
+            <img class = "imagelogo" src="https://lh3.googleusercontent.com/proxy/5CBkPJUPzN0uimh13aQPNhNtD5Fn2O9V6SWZG7R3HYG3MPVoJjvIJfnkX69qbz-QI79vCVVZoyoozDdFjUv5cbQREDrhcA" alt="imagelogo">
+            HEADER
+            <button id="hamburger-menu" class="hamburger-menu">&#9776;</button>
+        </div>
+        <div class = "nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class = "sidebar">sidebar</div>
+        <div class = "main">MAIN</div>
+        <div class = "box1">BOX1</div>
+        <div class = "box2">BOX2</div>
+        <div class = "box3">BOX3</div>
+        <div class = "footer">FOOTER</div>
+    </div>
+</body>
+</html>

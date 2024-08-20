@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+<title>Task 2</title>
+<style>
+  #container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+  }
+  #content {
+    font-size: 16px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div id="container">
+  <div id="content">
+    <p><b>Font size will be changed after clicking "Click Me"</b></p>
+  </div>
+  <button onclick="increaseFontSize()">Click Me</button>
+</div>
+
+<script>
+function increaseFontSize() {
+    var content = document.getElementById("content");
+    var currentSize = window.getComputedStyle(content, null).getPropertyValue('font-size');
+    var newSize = parseFloat(currentSize) + 2;
+    content.style.fontSize = newSize + 'px';
+}
+</script>
+
+</body>
+</html>

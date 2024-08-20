@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<head>
+
+<title>Task 2</title>
+
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    border: 3px solid black;
+    padding: 100px 270px; 
+    display: flex;
+    justify-content: center;
+  }
+  .container2 {
+    border: 3px solid black;
+    padding: 50px; 
+    display: flex;
+  }
+  .iconGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 100px); 
+    grid-gap: 10px; 
+  }
+  .icon {
+    width: 100px; 
+    height: 100px; 
+    border: 2px solid black; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px; 
+  }
+
+  .star::after {
+    content: '✧'; 
+  }
+  .star2::after {
+    content: '✡'; 
+  }
+  .bolt::after {
+    content: '🗲';
+  }
+  .heart::after {
+    content: '♡';
+  }
+
+</style>
+</head>
+<body>
+<div class="container2">
+  <div class="container">
+    <div class="iconGrid">
+      <div class="icon star"></div>
+      <div class="icon star2"></div>
+      <div class="icon bolt"></div>
+      <div class="icon heart"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

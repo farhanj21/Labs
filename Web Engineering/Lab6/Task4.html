@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 4</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.buttonContainer {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#hiddenImage {
+    display: none;
+}
+
+.scroll-text {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 50px;
+}
+
+.hover-element {
+    background-color: lightblue;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    cursor: help;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+</style>
+<script>
+$(document).ready(function(){
+    $("#toggleButton").click(function(){
+        $("#elementToToggle").toggle();
+    });
+    
+    $("#specificButton").click(function(){
+        alert("This is Part A of Task 4, Web Lab 6");
+    });
+
+    $("#changeColorButton").click(function(){
+        $("#colorDiv").css("background-color", "red");
+    });
+
+    $("#submitForm").click(function(){
+        var isValid = true;
+        $(".required").each(function(){
+            if ($(this).val() === '') {
+                isValid = false;
+                return false; 
+            }
+        });
+        if (!isValid) {
+            alert("Please fill out all required fields.");
+            return false; 
+        }
+    });
+
+    $(window).scroll(function(){
+        if ($(this).scrollTop() > 20) {
+            $("#hiddenImage").fadeIn();
+        }
+    });
+
+    $(".hover-element-target").hover(function(){
+        $(this).addClass("hover-element");
+    }, function(){
+        $(this).removeClass("hover-element");
+    });
+
+    $("#openModalButton").click(function(){
+        $(".modal").fadeIn();
+    });
+
+    $(".modal-close").click(function(){
+        $(".modal").fadeOut();
+    });
+    
+});
+</script>
+</head>
+<body>
+<div class="container">
+    <div class="buttonContainer">
+        <label><b>a. </b></label><button id="toggleButton">Toggle Visibility</button>
+    </div>
+
+    <div class="buttonContainer">
+        <label><b>b. </b></label><button id="specificButton">Click me!</button>
+    </div>
+
+    <div id="elementToToggle" style="display:none; text-align: center;">This is Part A of Task 4, Web Lab 6</div>
+
+    <div class="buttonContainer">
+        <label><b>c. </b></label><button id="changeColorButton">Change Color</button>
+    </div>
+    <div id="colorDiv" style="width: 200px; height: 200px; border: 1px solid black; margin: 10px auto;">
+        Part C <br> Div Color Change with the Click of a Button
+    </div>
+    <br>
+    <div class="buttonContainer">
+        
+        <form id="myForm">
+            <label><b>d. </b></label><label for="name">Name:</label>
+            <input type="text" id="name" class="required"><br><br>
+            
+            <label for="text">Roll Number:</label>
+            <input type="text" id="rollNumber" class="required"><br><br>
+            
+            <button type="button" id="submitForm">Submit</button>
+        </form>
+    </div>
+
+    <div class="scroll-text">
+        <label><b>e. </b></label>Scroll down to find the hidden image
+    </div>
+    <img id="hiddenImage" src="https://i.insider.com/63a0c2f4b5600000185b5f11?width=700" alt="Hidden Image" width="400" height="300">
+    <br><br>
+
+    <div class="buttonContainer">
+        <label><b>f. </b></label><button id="openModalButton">Open Modal</button>
+    </div>
+    
+    <div class="modal">
+        <div class="modal-content">
+            <span class="modal-close">This is Part F of Task 4, Web Lab 6</span>
+        </div>
+    </div>
+    <br>
+    <div class="buttonContainer">
+        <label><b>g. </b></label><label>Sort Items: </label><button id="sortButton">Sort Alphabetically</button>
+    </div>
+
+    <ul class="sortable-list">
+        <li>Farhan</li>
+        <li>Hadi</li>
+        <li>Shaaf</li>
+        <li>Haider</li>
+        <li>Ali</li>
+        <li>Ammar</li>
+    </ul>
+
+   <div class="tooltip hover-element-target">
+        <label><b>h. </b>Hover over me</label>
+        <span class="tooltiptext">This is a tooltip</span>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    
+</div> 
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q2 Mid</title>
+    <style>
+        body{
+            border-left: 8px solid green;
+            border-top: 8px solid black;
+            border-bottom: 8px solid black;
+            border-right: 8px solid black;
+            width : 65%;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+        .error{
+            color: red;
+        }
+        span
+        {
+            color:red;
+        }
+        .container1{
+            width: 35%;
+            display: inline-block;
+            padding-left: 5%;
+            padding-bottom: 5%;
+        }
+        .container2{
+            width: 35%;
+            display: inline-block;
+        }
+        
+        #submitbutton{
+            color: white;
+            background-color: green;
+            border: none;
+            border-radius: 4px;
+            padding: 8px;
+            width: 100px;
+        }
+        #resetbutton{
+            border: 1px solid gray;
+            color: gray;
+            border-radius: 4px;
+            padding: 8px;
+            width: 100px;
+        }
+    </style>
+
+<script>
+    function resetForm(){
+        document.getElementById("name").value = "";
+        document.getElementById("rollno").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("semester").value = "";
+        document.getElementById("section").value = "";
+        document.getElementById("m1").value = "";
+        document.getElementById("m2").value = "";
+        document.getElementById("m3").value = "";
+        document.getElementById("m4").value = "";
+        document.getElementById("total").value = "";
+        document.getElementById("m1Error").innerHTML = "";
+        document.getElementById("m2Error").innerHTML = "";
+        document.getElementById("m3Error").innerHTML = "";
+        document.getElementById("m4Error").innerHTML = "";
+    }
+
+    function validateForm(){
+        let name = document.getElementById("name").value;
+        let rollno = document.getElementById("rollno").value;
+        let email = document.getElementById("email").value;
+        let semester = document.getElementById("semester").value;
+        let section = document.getElementById("section").value;
+        let m1 = document.getElementById("m1").value;
+        let m2 = document.getElementById("m2").value;
+        let m3 = document.getElementById("m3").value;
+        let m4 = document.getElementById("m4").value;
+
+        if(name == ""){
+            alert("Name cannot be empty");
+            return false;
+        }
+
+        if(rollno == ""){
+            alert("Roll Number cannot be empty");
+            return false;
+        }
+
+        if(email == ""){
+            alert("Email cannot be empty");
+            return false;
+        }
+
+        if(section == ""){
+            alert("Section cannot be empty");
+            return false;
+        }
+
+        if(m1 == "" || m1 < 0 || m1 > 10){
+            document.getElementById("m1Error").innerHTML = "Assignment marks should be between 0 to 10";
+            return false;
+        }
+
+        if(m2 == "" || m2 < 0 || m2 > 10){
+            document.getElementById("m2Error").innerHTML = "Quiz marks should be between 0 to 10";
+            return false;
+        }
+
+        if(m3 == "" || m3 < 0 || m3 > 30){
+            document.getElementById("m3Error").innerHTML = "Mid term marks should be between 0 to 30";
+            return false;
+        }
+
+        if(m4 == "" || m4 < 0 || m4 > 50){
+            document.getElementById("m4Error").innerHTML = "Final marks should be between 0 to 50";
+            return false;
+        }
+
+        let total = parseInt(m1) + parseInt(m2) + parseInt(m3) + parseInt(m4);
+        document.getElementById("total").value = total;
+
+        return true;
+    }
+</script>
+</head>
+<body>
+    <div class = container>
+    <form action="">
+        
+        <div class="container1">
+            <h4>Enter Name<span>*</span></h4>
+            <input type="text" id="name" placeholder="Enter Name">
+            <h4>Enter Roll Number<span>*</span></h4>
+            <input type="text" id="rollno" placeholder="Enter Roll Number">
+            <h4>Enter Email<span>*</span></h4>
+            <input type="email" id="email" placeholder="Enter Email Address">
+            <h4>Enter Semester</h4>
+            <input type="number" id="semester" placeholder="Enter Current Semester">
+            <h4>Section<span>*</span></h4>
+            <input type="text" id="section" placeholder="Enter Section">
+            <h4>Total</h4>
+            <input type="text" id="total" readonly placeholder="Total Marks Shown Here">
+        </div>
+        <div class="container2">
+
+            <h4>Select Any course (Total Marks: 100)</h4>
+            <input type="radio" id="Web" name="course">
+            <label for="Web">Web</label>
+            <input type="radio" id="OOP" name="course">
+            <label for="OOP">OOP</label>
+            <input type="radio" id="Mobile" name="course">
+            <label for="Mobile">Mobile</label>
+
+            <h4>Enter Assignment Marks (0-10)<span>*</span></h4>
+            <input type="number" id="m1" placeholder="Enter Assignment Marks">
+            <span class="error" id="m1Error"></span>
+
+            <h4>Enter Quizzes Marks (0-10)<span>*</span></h4>
+            <input type="number" id="m2" placeholder="Enter Quiz Marks">
+            <span class="error" id="m2Error"></span>
+
+            <h4>Enter Mid-Exam Marks (0-30)<span>*</span></h4>
+            <input type="number" id="m3" placeholder="Enter Mid Term Marks">
+            <span class="error" id="m3Error"></span>
+
+            <h4>Enter Final-Exam Marks (0-50)<span>*</span></h4>
+            <input type="number" id="m4" placeholder="Enter Final Marks">
+            <span class="error" id="m4Error"></span>
+
+            <br><br><br>
+            <button id="submitbutton" onclick="validateForm()">Submit</button>
+            <button id="resetbutton" onclick="resetForm()">Reset</button>
+        </div>
+
+    
+    </form>
+</div>
+   
+</body>
+</html>

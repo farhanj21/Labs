@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+<title>Task 1</title>
+<style>
+    body {
+        background-color: blue;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    h1 {
+        color: black;
+    }
+    .buttonimage {
+        width: 50px;
+        height: auto;
+        cursor: pointer;
+        margin-top: 10px;
+        border: none;
+        background: none;
+    }
+</style>
+</head>
+<body>
+    <h1>Click Turn on Button</h1>
+
+    <img id="bulb" src="https://toppng.com/uploads/preview/light-bulb-on-off-png-11553940208oq66nq8jew.png" style="width:100px; height:100px;">
+
+    <div>
+        <img class="buttonimage" src="https://w7.pngwing.com/pngs/523/806/png-transparent-button-toggle-on-off-switch-green-glossy-start-power-control-thumbnail.png" onclick="turnOnLight()">
+        <img class="buttonimage" src="https://banner2.cleanpng.com/20180409/evq/kisspng-electrical-switches-power-symbol-button-network-sw-on-off-5acb58d1b41b58.6925565515232759857377.jpg" onclick="turnOffLight()">
+    </div>
+
+    <script>
+    function turnOnLight() {
+        var image = document.getElementById("bulb");
+        image.src = "https://toppng.com/uploads/preview/light-bulb-on-off-png-11553940319kdxsp3rf0i.png"; 
+    }
+
+    function turnOffLight() {
+        var image = document.getElementById("bulb");
+        image.src = "https://toppng.com/uploads/preview/light-bulb-on-off-png-11553940208oq66nq8jew.png"; 
+    }
+    </script>
+</body>
+</html>
